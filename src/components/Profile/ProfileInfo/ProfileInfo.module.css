@@ -1,0 +1,12 @@
+  .content img {
+    height: 350px;
+  }
+  
+  .avatar img{
+    width: 200px;
+    height: auto;
+  }
+
+  .descriptionBlock {
+    padding: 10px;
+  }

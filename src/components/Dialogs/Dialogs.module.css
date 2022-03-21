@@ -1,0 +1,16 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+}
+
+.dialog {
+    padding: 10px;
+}
+
+.dialogItems .active {
+    color: aquamarine;
+}
+
+.message {
+    padding: 10px;
+}
