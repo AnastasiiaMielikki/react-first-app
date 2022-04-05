@@ -4,14 +4,27 @@ import Message from './Message/Message.jsx';
 import classes from './Dialogs.module.css';
 
 const Dialogs = (props) => {
+    
+    let state = props.dialogsPage;
 
     let dialogsElements = 
-    props.dialogsData.map (dialogsData =>
+    state.dialogsData.map (dialogsData =>
         <DialogItem name={dialogsData.name} id={dialogsData.id}/>);
 
     let messagesElements = 
-    props.messagesData.map (messagesData =>
+    state.messagesData.map (messagesData =>
         <Message message={messagesData.message} />);
+
+   let newMessageBody = state.newMessageBody;
+
+    let onSendMessageClick = () => {
+        props.sendMessage();
+    }
+
+    let onNewMessageChange = (e) => {
+        let body = e.target.value;
+        props.updateNewMessageBody(body);
+    }
 
     return (
             <div className={classes.dialogs}>
@@ -20,8 +33,23 @@ const Dialogs = (props) => {
                 </div>
 
                 <div className={classes.messages}>
-                    {messagesElements}            
+                    <div>{messagesElements}</div>
+
+                    <div>
+                    <div>
+                        <textarea onChange={onNewMessageChange}
+                        value={newMessageBody}
+                        placeholder="enter your message"/>
+                    </div>
+                
+                    <div>
+                        <button onClick={onSendMessageClick}>New Message</button>
+                    </div>
+                    </div>         
                 </div>
+
+                
+
             </div>
     )
 }

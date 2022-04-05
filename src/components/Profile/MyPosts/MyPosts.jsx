@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './MyPosts.module.css'
 import Post from './Post/Post';
 
+
 const MyPosts = (props) => {
 
 let postsElement = 
@@ -10,14 +11,14 @@ let postsElement =
 
 let newPostElement = React.createRef();
 
-let addPost = () => {
+let onAddPost = () => {
   props.addPost();
-}
+};
 
 let onPostChange = () => {
   let text = newPostElement.current.value;
-  props.updateNewPostText(text);
-}
+  props.updateNewText(text);
+};
 
     return (
         <div className={classes.postsBlock}>
@@ -29,10 +30,10 @@ let onPostChange = () => {
               value={props.newPostText}/>
             </div>
             <div>
-              <button onClick={addPost}>New Post</button>
+              <button onClick={onAddPost}>New Post</button>
             </div>
-            </div>
-            <div className={classes.posts}>
+          </div>
+          <div className={classes.posts}>
               {postsElement}
           </div>
         </div>
